@@ -1,16 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/w3.css">  
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600" rel="stylesheet">
     <title>Colors</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.26/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.26/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.26/js/uikit-icons.min.js"></script>
 </head>
+
 <body>
-    <header class="w3-container">
+
+    <div class="uk-section-default uk-height-1-1" id="section1">
+        <div class="uk-section uk-light" style="margin: 0; padding: 0;">
+            <div class="uk-container" style="margin: 0; padding: 0;">
+                <canvas id="scene"></canvas>
+                <div clas="uk-margin">
+                    <input class="uk-input uk-form-width-medium uk-align-center uk-position-bottom-center" id="textInput"
+                        type="text" value="COLORS" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-section-default uk-height-1-1" id="section2">
+        <div class="uk-section" style="margin: 0; padding: 0;">
+            <div class="uk-container" style="margin: 0; padding: 0; max-width: 100%;">
+                <h1 class="uk-heading-primary uk-text-center"><span id="colorDisplay">RGB</span></h1>
+                <hr class="uk-divider-icon">
+                <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+                    <div class="uk-navbar-center">
+                        <ul class="uk-navbar-nav">
+                            <li class="uk-active"><a class="uk-button uk-button-default"  id="reset_" href="#">SHUFFLE</a></li>
+                            <li><a id="message" class="uk-button uk-button-default" href="#">TRY AGAIN</a></li>
+                            <li>
+                                <a class="uk-button uk-button-default" href="#">Difficulty</a>
+                                <div class="uk-navbar-dropdown">
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                        <li class="uk-active mode"><a class="uk-button uk-button-default" href="#">Easy</a></li>
+                                        <li class="mode"><a class="uk-button uk-button-default" href="#">Medium</a></li>
+                                        <li class="mode selected"><a class="uk-button uk-button-default" href="#">Hard</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match uk-padding" uk-grid>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                    <div class="uk-animation-toggle square">
+                        <div class="uk-card uk-card-default uk-card-body uk-animation-fade">
+                            <p class="uk-text-center"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <header class="w3-container">
         <h1 class="w3-orange">||LETS HAVE SOME FUN WITH COLORS||</h1>
         <h2><span id="colorDisplay">RGB</span></h2>
     </header>
@@ -27,9 +135,11 @@
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>        
-    </div>
+    </div> -->
 
     <!-- js files -->
     <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
 </body>
+
 </html>

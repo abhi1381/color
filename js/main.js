@@ -1,23 +1,13 @@
-//var game = {};
 
-//game.init =function () {
-  //  setMode();
-    //setSquares();
-   // Reset();
-//};
-
-//game.init();
-
-var numSq = 6;
+var numSq = 12;
 var colors = [];
-var header = document.querySelector("header");
-var square = document.querySelectorAll(".square");
+var square = document.querySelectorAll(".square div");
 var pickedColor;
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var reset = document.querySelector("#reset_");
 var mode = document.querySelectorAll(".mode");
-
+var header = document.querySelector("#section2 h1");
 
 _init();
 
@@ -33,11 +23,14 @@ function setMode() {
         mode[i].addEventListener("click", function () {
             mode[0].classList.remove("selected");
             mode[1].classList.remove("selected");
+            mode[2].classList.remove("selected");
             this.classList.add("selected");
-            if (this.textContent == "EASY") {
-                numSq = 3;
+            if (this.textContent == "Easy") {
+                numSq = 4;
+            } else if(this.textContent == "Medium") {
+                numSq = 8;
             } else {
-                numSq = 6;
+                numSq = 12;
             }
             Reset();
         });
@@ -58,7 +51,7 @@ function setSquares() {
                 reset.textContent = "PLAY AGAIN";
                 header.style.background = clickedColor;
             } else {
-                this.style.background = "#232323";
+                this.style.background = "#ffffff";
                 messageDisplay.textContent = "KEEP GUESSING YOU CAN DO IT!";
             }
         });
@@ -79,38 +72,12 @@ function Reset() {
             square[i].style.display = "none";
         }
     }
-    header.style.background = "rgb(121, 238, 66)";
+    header.style.background = "white";
 }
-/*easy.addEventListener("click",function () {
-    hard.classList.remove("selected");
-    easy.classList.add("selected");
-    numSq = 3;    
-    colors = generateRandomColors(numSq);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    for (var i = 0; i < square.length; i++) {
-        if (colors[i]) {
-            square[i].style.background = colors[i];
-        }else {
-            square[i].style.display = "none";
-        }
-    }
-    
-});
 
-hard.addEventListener("click", function () {
-    easy.classList.remove("selected");
-    hard.classList.add("selected");
-    colors = generateRandomColors(numSq);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    for (var i = 0; i < square.length; i++) {
-        square[i].style.background = colors[i];
-        square[i].style.display = "block";        
-    }
-}); */
 
-reset.addEventListener("click", function () {
+reset.addEventListener("click", function (e) {
+    e.preventDefault();
     Reset();
 });
 
