@@ -8,7 +8,7 @@ var canvas = document.querySelector("#scene"),
     },
     radius = 0.65;
 
-var colors = ["#468966","#FFB03B","#ff0000", "#efff09", "#ff9409", "#0066ff","#ff00b3", "#4c00ff","#ffe923"];
+var colors = ["#468966", "#FFB03B", "#ff0000", "#efff09", "#ff9409", "#0066ff", "#ff00b3", "#4c00ff", "#ffe923"];
 
 var textInput = document.querySelector("#textInput");
 
@@ -62,11 +62,13 @@ Particle.prototype.render = function () {
 }
 
 function onMouseMove(e) {
+    e.preventDefault();
     mouse.x = e.clientX;
     mouse.y = e.clientY;
 }
 
 function onTouchMove(e) {
+    e.preventDefault();
     if (e.touches.length > 0) {
         mouse.x = e.touches[0].clientX;
         mouse.y = e.touches[0].clientY;
@@ -74,6 +76,7 @@ function onTouchMove(e) {
 }
 
 function onTouchEnd(e) {
+    e.preventDefault();
     mouse.x = -9999;
     mouse.y = -9999;
 }
@@ -109,9 +112,10 @@ function initScene() {
 
 }
 
-function onMouseClick() {
+function onMouseClick(e) {
     radius++;
     if (radius === 5) {
+        e.preventDefault();
         radius = 0;
     }
 }
